@@ -87,23 +87,9 @@
 }
 
 #map {
-  height: 100vh;
+  height: calc(100vh - 44px); /* Ajuste genérico para notch */
   width: 100%;
   position: absolute;
-  top: 0;
+  top: 44px; /* Espacio fijo para notch */
   left: 0;
-}
-
-@supports (padding: env(safe-area-inset-top)) {
-  #map {
-    height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-    top: env(safe-area-inset-top);
-  }
-}
-
-@media screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
-  #map {
-    height: calc(100vh - 44px); /* Ajuste manual para iPhone 16 Pro Max */
-    top: 44px;
-  }
 }

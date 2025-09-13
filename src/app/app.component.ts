@@ -94,7 +94,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   redirectToGoogleMaps(location: { lat: number; lng: number }): void {
-    const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}`;
+    const googleMapsUrl = `https://www.google.com/maps/@${location.lat},${location.lng},15z`;
     window.location.href = googleMapsUrl;
   }
 
