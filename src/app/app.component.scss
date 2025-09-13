@@ -87,9 +87,23 @@
 }
 
 #map {
-  height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  height: 100vh;
   width: 100%;
   position: absolute;
-  top: env(safe-area-inset-top);
+  top: 0;
   left: 0;
+}
+
+@supports (padding: env(safe-area-inset-top)) {
+  #map {
+    height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    top: env(safe-area-inset-top);
+  }
+}
+
+@media screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+  #map {
+    height: calc(100vh - 44px); /* Ajuste manual para iPhone 16 Pro Max */
+    top: 44px;
+  }
 }
