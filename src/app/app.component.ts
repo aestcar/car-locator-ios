@@ -96,7 +96,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   redirectToGoogleMaps(location: { lat: number; lng: number }): void {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     const googleMapsUrl = isMobile
-      ? `geo:${location.lat},${location.lng}`
+      ? `https://maps.google.com/?q=${location.lat},${location.lng}`
       : `https://www.google.com/maps?q=${location.lat},${location.lng}`;
     window.location.href = googleMapsUrl;
   }
