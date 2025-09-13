@@ -1,13 +1,63 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>CarLocatorIos</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Car Locator iOS</title>
+    <base href="/" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="CarLocator" />
+    <meta name="description" content="Encuentra y guarda la ubicación de tu coche fácilmente" />
+
+    <!-- iOS specific icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/icon-192x192.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/icons/icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/icons/icon-128x128.png" />
+
+    <!-- iOS splash screens -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="#9c27b0" />
+    <meta name="msapplication-TileColor" content="#9c27b0" />
+
+    <style>
+      * {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      html,
+      body {
+        touch-action: pan-x pan-y;
+        overflow: hidden;
+        height: 100vh;
+        height: -webkit-fill-available;
+      }
+
+      /* iOS safe area support */
+      body {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+    </style>
+  </head>
+  <body class="mat-typography">
+    <app-root></app-root>
+    <noscript>Habilita JavaScript para usar esta aplicación.</noscript>
+  </body>
 </html>

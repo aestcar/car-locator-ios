@@ -1,0 +1,19 @@
+<div class="permission-container d-flex flex-column align-items-center justify-content-center h-100">
+  <div class="permission-card">
+    <div class="icon-container mb-4">
+      <mat-icon class="location-icon">location_on</mat-icon>
+    </div>
+
+    <h1 class="title mb-3">Car Locator</h1>
+
+    <p class="description mb-4">
+      Esta aplicación necesita acceso a tu ubicación para funcionar correctamente y ayudarte a guardar la ubicación de
+      tu coche.
+    </p>
+
+    <button mat-raised-button color="primary" class="permission-button" (click)="onRequestPermission()">
+      <mat-icon>my_location</mat-icon>
+      Permitir Ubicación
+    </button>
+  </div>
+</div>

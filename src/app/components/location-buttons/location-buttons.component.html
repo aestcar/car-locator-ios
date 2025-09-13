@@ -1,0 +1,11 @@
+<div class="button-container">
+  <button mat-raised-button color="primary" (click)="onSaveLocation()" [disabled]="!hasCurrentLocation">
+    <mat-icon>save</mat-icon>
+    Guardar Ubicación
+  </button>
+
+  <button mat-raised-button color="accent" (click)="onRecoverLocation()" [disabled]="!hasSavedLocation">
+    <mat-icon>my_location</mat-icon>
+    Recuperar Ubicación
+  </button>
+</div>
