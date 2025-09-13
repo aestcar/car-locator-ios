@@ -94,10 +94,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   redirectToGoogleMaps(location: { lat: number; lng: number }): void {
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const googleMapsUrl = isMobile
-      ? `https://maps.google.com/?q=${location.lat},${location.lng}`
-      : `https://www.google.com/maps?q=${location.lat},${location.lng}`;
+    const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}`;
     window.location.href = googleMapsUrl;
   }
 
@@ -193,6 +190,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.#map);
+
+    mapElement.style.height = `calc(100vh - env(safe-area-inset-top))`;
 
     setTimeout(() => {
       this.#map?.invalidateSize();
