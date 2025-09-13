@@ -191,12 +191,6 @@ export class AppComponent implements OnInit, AfterViewInit {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.#map);
 
-    mapElement.style.height = `calc(100vh - env(safe-area-inset-top))`;
-
-    setTimeout(() => {
-      this.#map?.invalidateSize();
-    }, 100);
-
     const savedLocation = this.savedLocation();
     if (savedLocation) {
       const whiteIcon = L.divIcon({

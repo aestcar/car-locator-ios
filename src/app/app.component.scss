@@ -21,7 +21,7 @@
   pointer-events: auto;
 }
 
-.error-message {
+#error-message {
   background: linear-gradient(135deg, $error-red, $error-red-dark);
   color: $white;
   padding: 1rem 2rem;
@@ -84,4 +84,8 @@
   padding: 1rem;
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+#map {
+  height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
 }
