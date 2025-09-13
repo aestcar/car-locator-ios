@@ -1,3 +1,5 @@
+<app-header></app-header>
+
 @if (!permissionGranted()) {
 <app-permission-screen (requestPermission)="onPermissionRequest()"></app-permission-screen>
 } @else if (locationError()) {
