@@ -93,29 +93,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     localStorage.setItem('savedCarLocation', JSON.stringify(location));
   }
 
-  redirectToGoogleMaps(location: SavedLocation): void {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const currentLat = position.coords.latitude;
-          const currentLng = position.coords.longitude;
-          const googleMapsUrl = `https://www.google.com/maps/dir/${currentLat},${currentLng}/${location.lat},${location.lng}/@${location.lat},${location.lng},17z/data=!3m1!4b1!4m2!4m1!3e2`;
-          window.location.href = googleMapsUrl;
-        },
-        () => {
-          const googleMapsUrl = `https://www.google.com/maps/@${location.lat},${location.lng},17z`;
-          window.location.href = googleMapsUrl;
-        },
-        {
-          enableHighAccuracy: true,
-          timeout: 5000,
-          maximumAge: 60000
-        }
-      );
-    } else {
-      const googleMapsUrl = `https://www.google.com/maps/@${location.lat},${location.lng},17z`;
-      window.location.href = googleMapsUrl;
-    }
+  redirectToGoogleMaps(location: { lat: number; lng: number }): void {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const googleMapsUrl = isMobile
+      ? `geo:${location.lat},${location.lng}`
+      : `https://www.google.com/maps?q=${location.lat},${location.lng}`;
+    window.location.href = googleMapsUrl;
   }
 
   #checkExistingPermission(): void {

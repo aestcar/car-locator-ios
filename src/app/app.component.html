@@ -1,5 +1,3 @@
-<app-header></app-header>
-
 @if (!permissionGranted()) {
 <app-permission-screen (requestPermission)="onPermissionRequest()"></app-permission-screen>
 } @else if (locationError()) {
@@ -9,6 +7,8 @@
   </div>
 </div>
 } @else {
+<app-header></app-header>
+
 <div class="app-container h-100 w-100 position-relative">
   <div #map class="map h-100"></div>
 
