@@ -13,6 +13,7 @@ import { PermissionScreenComponent } from './components/permission-screen/permis
 import { SavedLocation } from './interfaces/saved-location.interface';
 import { PURPLE_MARKER_SVG } from './constants/marker-icons';
 import * as L from 'leaflet';
+import { WHITE_MARKER_SVG } from './constants/white-marker-icon';
 
 @Component({
   selector: 'app-root',
@@ -98,11 +99,11 @@ export class AppComponent implements OnInit, AfterViewInit {
           const currentLat = position.coords.latitude;
           const currentLng = position.coords.longitude;
           const googleMapsUrl = `https://www.google.com/maps/dir/${currentLat},${currentLng}/${location.lat},${location.lng}/@${location.lat},${location.lng},17z/data=!3m1!4b1!4m2!4m1!3e2`;
-          window.open(googleMapsUrl, '_blank');
+          window.location.href = googleMapsUrl;
         },
         () => {
           const googleMapsUrl = `https://www.google.com/maps/@${location.lat},${location.lng},17z`;
-          window.open(googleMapsUrl, '_blank');
+          window.location.href = googleMapsUrl;
         },
         {
           enableHighAccuracy: true,
@@ -112,7 +113,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       );
     } else {
       const googleMapsUrl = `https://www.google.com/maps/@${location.lat},${location.lng},17z`;
-      window.open(googleMapsUrl, '_blank');
+      window.location.href = googleMapsUrl;
     }
   }
 
@@ -206,6 +207,25 @@ export class AppComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.#map?.invalidateSize();
     }, 100);
+
+    const savedLocation = this.savedLocation();
+    if (savedLocation) {
+      const whiteIcon = L.divIcon({
+        html: WHITE_MARKER_SVG,
+        className: 'custom-white-marker',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34]
+      });
+
+      L.marker([savedLocation.lat, savedLocation.lng], {
+        icon: whiteIcon
+      })
+        .addTo(this.#map)
+        .bindPopup('🚗 Última ubicación guardada del coche');
+
+      this.#map.setView([savedLocation.lat, savedLocation.lng], 16);
+    }
   }
 
   #addCurrentLocationIndicator(lat: number, lng: number): void {

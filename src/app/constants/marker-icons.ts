@@ -1,6 +1,6 @@
 export const PURPLE_MARKER_SVG = `
-  <svg width="25" height="41" viewBox="0 0 25 41" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12.5,0 C19.4036,0 25,5.59644 25,12.5 C25,19.4036 12.5,41 12.5,41 C12.5,41 0,19.4036 0,12.5 C0,5.59644 5.59644,0 12.5,0 Z" fill="#9c27b0"/>
-    <circle cx="12.5" cy="12.5" r="6" fill="white"/>
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#9c27b0" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin">
+  <path d="M21 10c0 6-9 13-9 13S3 16 3 10a9 9 0 1 1 18 0z"></path>
+  <circle cx="12" cy="10" r="3"></circle>
+</svg>
 `;
