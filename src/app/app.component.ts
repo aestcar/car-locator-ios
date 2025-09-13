@@ -112,9 +112,15 @@ export class AppComponent implements OnInit, AfterViewInit {
               this.#initializeMap();
               this.#requestLocationPermission();
             }, 100);
+          } else {
+            this.permissionGranted.set(false);
           }
         })
-        .catch(() => {});
+        .catch(() => {
+          this.permissionGranted.set(false);
+        });
+    } else {
+      this.permissionGranted.set(false);
     }
   }
 
