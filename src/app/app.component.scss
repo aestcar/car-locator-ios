@@ -87,9 +87,9 @@
 }
 
 #map {
-  height: calc(100vh - 44px); /* Ajuste genérico para notch */
+  height: 100%;
   width: 100%;
   position: absolute;
-  top: 44px; /* Espacio fijo para notch */
+  top: 0;
   left: 0;
 }
