@@ -14,11 +14,12 @@ import { SavedLocation } from './interfaces/saved-location.interface';
 import { PURPLE_MARKER_SVG } from './constants/marker-icons';
 import * as L from 'leaflet';
 import { WHITE_MARKER_SVG } from './constants/white-marker-icon';
+import { HeaderComponent } from './header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LocationButtonsComponent, PermissionScreenComponent],
+  imports: [LocationButtonsComponent, PermissionScreenComponent, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
